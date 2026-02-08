@@ -1,4 +1,4 @@
-# 24UADS1021-HemantKumar-NNLAB-2026
+# 24UADS1021-HEMANTKUMAR-NNLAB-2026
 # Neural Network Experiments 🧠🤖
 
 This repository contains my hands-on experiments and implementations related to **Neural Networks**.  
