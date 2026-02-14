@@ -9,11 +9,9 @@ np.random.seed(1)
 N = 10000
 X = np.random.rand(N, 2)
 
-# True XOR rule
 y = np.logical_xor(X[:, 0] > 0.5, X[:, 1] > 0.5)
 y = y.astype(int).reshape(-1, 1)
 
-# Train-Test Split
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
@@ -25,11 +23,10 @@ class MLP:
 
         self.lr = lr
 
-        # Xavier Initialization
-        self.W1 = np.random.randn(input_size, hidden_size) * np.sqrt(1/input_size)
+        self.W1 = np.random.randn(input_size, hidden_size)
         self.b1 = np.zeros((1, hidden_size))
 
-        self.W2 = np.random.randn(hidden_size, output_size) * np.sqrt(1/hidden_size)
+        self.W2 = np.random.randn(hidden_size, output_size)
         self.b2 = np.zeros((1, output_size))
 
         self.loss_history = []
@@ -38,6 +35,9 @@ class MLP:
     # Sigmoid Activation
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
+
+    def sigmoid_derivative(self, x):
+        return x * (1 - x)
 
     def forward(self, X):
         self.z1 = np.dot(X, self.W1) + self.b1
@@ -52,26 +52,29 @@ class MLP:
 
         m = y.shape[0]
 
-        dz2 = self.a2 - y
-        dW2 = np.dot(self.a1.T, dz2) / m
-        db2 = np.sum(dz2, axis=0, keepdims=True) / m
-
-        dz1 = np.dot(dz2, self.W2.T) * self.a1 * (1 - self.a1)
-        dW1 = np.dot(X.T, dz1) / m
-        db1 = np.sum(dz1, axis=0, keepdims=True) / m
-
-        self.W2 -= self.lr * dW2
-        self.b2 -= self.lr * db2
-        self.W1 -= self.lr * dW1
-        self.b1 -= self.lr * db1
-
-        # Binary Cross-Entropy Loss
-        loss = -np.mean(
-            y * np.log(self.a2 + 1e-8) +
-            (1 - y) * np.log(1 - self.a2 + 1e-8)
-        )
-
+        # MSE Loss
+        error = y - self.a2
+        loss = np.mean(np.square(error))
         self.loss_history.append(loss)
+
+        # Output layer gradient (MSE + sigmoid)
+        d_output = error * self.sigmoid_derivative(self.a2)
+
+        dW2 = np.dot(self.a1.T, d_output) / m
+        db2 = np.sum(d_output, axis=0, keepdims=True) / m
+
+        # Hidden layer gradient
+        hidden_error = np.dot(d_output, self.W2.T)
+        d_hidden = hidden_error * self.sigmoid_derivative(self.a1)
+
+        dW1 = np.dot(X.T, d_hidden) / m
+        db1 = np.sum(d_hidden, axis=0, keepdims=True) / m
+
+        # Weight Updates
+        self.W2 += self.lr * dW2
+        self.b2 += self.lr * db2
+        self.W1 += self.lr * dW1
+        self.b1 += self.lr * db1
 
     def train(self, X, y, epochs=12000):
 
@@ -90,15 +93,12 @@ class MLP:
     def predict(self, X):
         return (self.forward(X) > 0.5).astype(int)
 
-
-
-#  Train Model
+# Train Model
 
 model = MLP(hidden_size=20, lr=0.3)
 model.train(X_train, y_train, epochs=12000)
 
-
-#  Evaluate Performance
+# Evaluate Performance
 
 train_preds = model.predict(X_train)
 test_preds = model.predict(X_test)
@@ -112,7 +112,6 @@ print("Test Accuracy:", test_acc, "%")
 print("\nConfusion Matrix (Test Data):")
 print(confusion_matrix(y_test, test_preds))
 
-
 # Loss Curve
 
 plt.figure()
@@ -122,8 +121,7 @@ plt.xlabel("Epochs")
 plt.ylabel("Loss")
 plt.show()
 
-
-#  Accuracy Curve
+# Accuracy Curve
 
 plt.figure()
 plt.plot(model.train_accuracy_history)
@@ -132,9 +130,7 @@ plt.xlabel("Epochs")
 plt.ylabel("Accuracy")
 plt.show()
 
-
-
-#  Sigmoid Activation Function Graph
+# Sigmoid Activation Function Graph
 def plot_sigmoid():
 
     x = np.linspace(-10, 10, 400)
@@ -150,9 +146,7 @@ def plot_sigmoid():
 
 plot_sigmoid()
 
-
-
-#  Decision Boundary Visualization
+# Decision Boundary Visualization
 
 def plot_decision_boundary(model, X, y):
 
