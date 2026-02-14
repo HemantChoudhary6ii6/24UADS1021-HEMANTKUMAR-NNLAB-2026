@@ -1,13 +1,31 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
 
-class MLP_XOR:
+# Generate Large XOR Dataset (10,000 samples)
+np.random.seed(1)
 
-    def __init__(self, input_size=2, hidden_size=4, output_size=1, lr=0.5):
+N = 10000
+X = np.random.rand(N, 2)
 
-        np.random.seed(1)
+# True XOR rule
+y = np.logical_xor(X[:, 0] > 0.5, X[:, 1] > 0.5)
+y = y.astype(int).reshape(-1, 1)
+
+# Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+
+class MLP:
+
+    def __init__(self, input_size=2, hidden_size=20, output_size=1, lr=0.3):
+
         self.lr = lr
 
+        # Xavier Initialization
         self.W1 = np.random.randn(input_size, hidden_size) * np.sqrt(1/input_size)
         self.b1 = np.zeros((1, hidden_size))
 
@@ -15,120 +33,87 @@ class MLP_XOR:
         self.b2 = np.zeros((1, output_size))
 
         self.loss_history = []
-        self.accuracy_history = []
+        self.train_accuracy_history = []
 
-    # Activation 
+    # Sigmoid Activation
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
 
-    def sigmoid_derivative(self, x):
-        return x * (1 - x)
-
-    # Forward-
     def forward(self, X):
-        self.hidden_input = np.dot(X, self.W1) + self.b1
-        self.hidden_output = self.sigmoid(self.hidden_input)
+        self.z1 = np.dot(X, self.W1) + self.b1
+        self.a1 = self.sigmoid(self.z1)
 
-        self.final_input = np.dot(self.hidden_output, self.W2) + self.b2
-        self.output = self.sigmoid(self.final_input)
+        self.z2 = np.dot(self.a1, self.W2) + self.b2
+        self.a2 = self.sigmoid(self.z2)
 
-        return self.output
+        return self.a2
 
-    # Backward 
     def backward(self, X, y):
 
-        error = y - self.output
+        m = y.shape[0]
 
-        # Loss
-        loss = np.mean(np.square(error))
+        dz2 = self.a2 - y
+        dW2 = np.dot(self.a1.T, dz2) / m
+        db2 = np.sum(dz2, axis=0, keepdims=True) / m
+
+        dz1 = np.dot(dz2, self.W2.T) * self.a1 * (1 - self.a1)
+        dW1 = np.dot(X.T, dz1) / m
+        db1 = np.sum(dz1, axis=0, keepdims=True) / m
+
+        self.W2 -= self.lr * dW2
+        self.b2 -= self.lr * db2
+        self.W1 -= self.lr * dW1
+        self.b1 -= self.lr * db1
+
+        # Binary Cross-Entropy Loss
+        loss = -np.mean(
+            y * np.log(self.a2 + 1e-8) +
+            (1 - y) * np.log(1 - self.a2 + 1e-8)
+        )
+
         self.loss_history.append(loss)
 
-        d_output = error * self.sigmoid_derivative(self.output)
-
-        hidden_error = np.dot(d_output, self.W2.T)
-        d_hidden = hidden_error * self.sigmoid_derivative(self.hidden_output)
-
-        # Weight updates
-        self.W2 += np.dot(self.hidden_output.T, d_output) * self.lr
-        self.b2 += np.sum(d_output, axis=0, keepdims=True) * self.lr
-
-        self.W1 += np.dot(X.T, d_hidden) * self.lr
-        self.b1 += np.sum(d_hidden, axis=0, keepdims=True) * self.lr
-
-    # Accuracy 
-    def compute_accuracy(self, X, y):
-        preds = (self.forward(X) > 0.5).astype(int)
-        acc = np.mean(preds == y)
-        self.accuracy_history.append(acc)
-
-    # Train 
-    def train(self, X, y, epochs=20000):
+    def train(self, X, y, epochs=12000):
 
         for epoch in range(epochs):
 
             self.forward(X)
             self.backward(X, y)
-            self.compute_accuracy(X, y)
+
+            preds = (self.a2 > 0.5).astype(int)
+            acc = np.mean(preds == y)
+            self.train_accuracy_history.append(acc)
 
             if epoch % 2000 == 0:
-                print(f"Epoch {epoch}, Loss: {self.loss_history[-1]:.4f}, Accuracy: {self.accuracy_history[-1]*100:.2f}%")
+                print(f"Epoch {epoch}, Loss: {self.loss_history[-1]:.4f}, Accuracy: {acc*100:.2f}%")
 
-    # Predict 
     def predict(self, X):
         return (self.forward(X) > 0.5).astype(int)
 
 
 
-# XOR DATASET
+#  Train Model
 
-X = np.array([
-    [0,0],
-    [0,1],
-    [1,0],
-    [1,1]
-])
-
-y = np.array([
-    [0],
-    [1],
-    [1],
-    [0]
-])
+model = MLP(hidden_size=20, lr=0.3)
+model.train(X_train, y_train, epochs=12000)
 
 
-# TRAIN MODEL
+#  Evaluate Performance
 
-model = MLP_XOR(hidden_size=4, lr=0.5)
-model.train(X, y, epochs=20000)
+train_preds = model.predict(X_train)
+test_preds = model.predict(X_test)
 
+train_acc = np.mean(train_preds == y_train) * 100
+test_acc = np.mean(test_preds == y_test) * 100
 
-# FINAL PREDICTIONS
+print("\nTraining Accuracy:", train_acc, "%")
+print("Test Accuracy:", test_acc, "%")
 
-predictions = model.predict(X)
-print("\nPredictions:\n", predictions)
-
-
-# ACCURACY
-
-accuracy = np.mean(predictions == y) * 100
-print("\nFinal Accuracy:", accuracy, "%")
+print("\nConfusion Matrix (Test Data):")
+print(confusion_matrix(y_test, test_preds))
 
 
-# CONFUSION MATRIX
-
-def confusion_matrix(y_true, y_pred):
-    TP = np.sum((y_true == 1) & (y_pred == 1))
-    TN = np.sum((y_true == 0) & (y_pred == 0))
-    FP = np.sum((y_true == 0) & (y_pred == 1))
-    FN = np.sum((y_true == 1) & (y_pred == 0))
-    return np.array([[TN, FP],
-                     [FN, TP]])
-
-cm = confusion_matrix(y, predictions)
-print("\nConfusion Matrix:\n", cm)
-
-
-# LOSS CURVE
+# Loss Curve
 
 plt.figure()
 plt.plot(model.loss_history)
@@ -138,26 +123,42 @@ plt.ylabel("Loss")
 plt.show()
 
 
-# EPOCHS vs ACCURACY GRAPH
+#  Accuracy Curve
 
 plt.figure()
-plt.plot(model.accuracy_history)
+plt.plot(model.train_accuracy_history)
 plt.title("Accuracy vs Epochs")
 plt.xlabel("Epochs")
 plt.ylabel("Accuracy")
 plt.show()
 
 
-# DECISION BOUNDARY VISUALIZATION
+
+#  Sigmoid Activation Function Graph
+def plot_sigmoid():
+
+    x = np.linspace(-10, 10, 400)
+    y = 1 / (1 + np.exp(-x))
+
+    plt.figure()
+    plt.plot(x, y)
+    plt.title("Sigmoid Activation Function")
+    plt.xlabel("Input")
+    plt.ylabel("Output")
+    plt.grid(True)
+    plt.show()
+
+plot_sigmoid()
+
+
+
+#  Decision Boundary Visualization
 
 def plot_decision_boundary(model, X, y):
 
-    x_min, x_max = -0.5, 1.5
-    y_min, y_max = -0.5, 1.5
-
     xx, yy = np.meshgrid(
-        np.linspace(x_min, x_max, 200),
-        np.linspace(y_min, y_max, 200)
+        np.linspace(0, 1, 300),
+        np.linspace(0, 1, 300)
     )
 
     grid = np.c_[xx.ravel(), yy.ravel()]
@@ -166,11 +167,10 @@ def plot_decision_boundary(model, X, y):
 
     plt.figure()
     plt.contourf(xx, yy, Z, alpha=0.3)
-    plt.scatter(X[:,0], X[:,1], c=y.flatten())
-
-    plt.title("Decision Boundary for XOR (MLP)")
+    plt.scatter(X[:, 0], X[:, 1], c=y.flatten(), s=10)
+    plt.title("Decision Boundary (XOR - 10,000 Samples)")
     plt.xlabel("Input 1")
     plt.ylabel("Input 2")
     plt.show()
 
-plot_decision_boundary(model, X, y)
+plot_decision_boundary(model, X_test, y_test)
