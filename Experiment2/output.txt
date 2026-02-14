@@ -1,22 +1,13 @@
-Epoch 0, Loss: 0.2520, Accuracy: 75.00%
-Epoch 2000, Loss: 0.0027, Accuracy: 100.00%
-Epoch 4000, Loss: 0.0008, Accuracy: 100.00%
-Epoch 6000, Loss: 0.0005, Accuracy: 100.00%
-Epoch 8000, Loss: 0.0003, Accuracy: 100.00%
-Epoch 10000, Loss: 0.0003, Accuracy: 100.00%
-Epoch 12000, Loss: 0.0002, Accuracy: 100.00%
-Epoch 14000, Loss: 0.0002, Accuracy: 100.00%
-Epoch 16000, Loss: 0.0001, Accuracy: 100.00%
-Epoch 18000, Loss: 0.0001, Accuracy: 100.00%
+Epoch 0, Loss: 0.7755, Accuracy: 49.31%
+Epoch 2000, Loss: 0.5692, Accuracy: 87.54%
+Epoch 4000, Loss: 0.2485, Accuracy: 90.12%
+Epoch 6000, Loss: 0.1649, Accuracy: 94.97%
+Epoch 8000, Loss: 0.1293, Accuracy: 96.65%
+Epoch 10000, Loss: 0.1099, Accuracy: 97.58%
 
-Predictions:
- [[0]
- [1]
- [1]
- [0]]
+Training Accuracy: 97.8125 %
+Test Accuracy: 97.35000000000001 %
 
-Final Accuracy: 100.0 %
-
-Confusion Matrix:
- [[2 0]
- [0 2]]
+Confusion Matrix (Test Data):
+[[989  24]
+ [ 29 958]]
