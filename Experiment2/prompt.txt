@@ -1,0 +1,1 @@
+WAP to implement a Multi-Layer Perceptron (MLP) with one hidden layer using NumPy in Python and demonstrate that it learns the XOR Boolean function, the solution must compute and display final accuracy (above 85%), generate a confusion matrix, plot Loss vs Epochs and Accuracy vs Epochs using matplotlib, visualize the decision boundary, and conclude with results.
