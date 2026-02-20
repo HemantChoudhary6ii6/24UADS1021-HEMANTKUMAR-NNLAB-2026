@@ -1,0 +1,22 @@
+Epoch 1/20 | Loss: 1.1058 | Accuracy: 0.7254
+Epoch 2/20 | Loss: 0.4422 | Accuracy: 0.8827
+Epoch 3/20 | Loss: 0.3526 | Accuracy: 0.9019
+Epoch 4/20 | Loss: 0.3118 | Accuracy: 0.9122
+Epoch 5/20 | Loss: 0.2852 | Accuracy: 0.9187
+Epoch 6/20 | Loss: 0.2654 | Accuracy: 0.9247
+Epoch 7/20 | Loss: 0.2495 | Accuracy: 0.9292
+Epoch 8/20 | Loss: 0.2359 | Accuracy: 0.9327
+Epoch 9/20 | Loss: 0.2244 | Accuracy: 0.9361
+Epoch 10/20 | Loss: 0.2141 | Accuracy: 0.9390
+Epoch 11/20 | Loss: 0.2049 | Accuracy: 0.9413
+Epoch 12/20 | Loss: 0.1963 | Accuracy: 0.9438
+Epoch 13/20 | Loss: 0.1885 | Accuracy: 0.9462
+Epoch 14/20 | Loss: 0.1817 | Accuracy: 0.9484
+Epoch 15/20 | Loss: 0.1753 | Accuracy: 0.9499
+Epoch 16/20 | Loss: 0.1692 | Accuracy: 0.9520
+Epoch 17/20 | Loss: 0.1636 | Accuracy: 0.9535
+Epoch 18/20 | Loss: 0.1581 | Accuracy: 0.9547
+Epoch 19/20 | Loss: 0.1530 | Accuracy: 0.9564
+Epoch 20/20 | Loss: 0.1484 | Accuracy: 0.9580
+
+Final Test Accuracy: 0.9546
