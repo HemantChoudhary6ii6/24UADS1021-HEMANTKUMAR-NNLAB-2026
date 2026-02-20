@@ -6,7 +6,6 @@ from sklearn.metrics import confusion_matrix
 import seaborn as sns
 
 # Load Dataset 
-
 (ds_train, ds_test), ds_info = tfds.load(
     'mnist',
     split=['train', 'test'],
@@ -25,7 +24,6 @@ ds_train = ds_train.map(preprocess).shuffle(60000).batch(batch_size)
 ds_test = ds_test.map(preprocess).batch(batch_size)
 
 #Network Parameters
-
 n_input = 784
 n_hidden1 = 256
 n_hidden2 = 128
@@ -35,7 +33,6 @@ learning_rate = 0.01
 epochs = 20
 
 # He Initialization (Manual)
-
 def he_init(shape):
     stddev = tf.sqrt(2.0 / shape[0])
     return tf.random.normal(shape, stddev=stddev)
@@ -50,7 +47,6 @@ W3 = tf.Variable(he_init([n_hidden2, n_output]))
 b3 = tf.Variable(tf.zeros([n_output]))
 
 # Feed Forward
-
 def forward_pass(X):
     Z1 = tf.matmul(X, W1) + b1
     A1 = tf.nn.relu(Z1)
@@ -62,7 +58,6 @@ def forward_pass(X):
     return Z3
 
 # Loss Function
-
 def compute_loss(logits, labels):
     return tf.reduce_mean(
         tf.nn.softmax_cross_entropy_with_logits(
@@ -70,7 +65,6 @@ def compute_loss(logits, labels):
     )
 
 # Training (Backpropagation)
-
 train_loss_history = []     
 train_acc_history = []
 
@@ -120,11 +114,10 @@ for epoch in range(epochs):
 
     print(f"Epoch {epoch+1}/{epochs} | "
           f"Loss: {avg_loss:.4f} | "
-          f"Accuracy: {epoch_accuracy:.4f}")
+          f"Training Accuracy: {epoch_accuracy:.4f}")
 
 
 # Test Accuracy
-
 correct = 0
 total = 0
 all_preds = []
@@ -148,7 +141,6 @@ test_accuracy = correct / total
 print("\nFinal Test Accuracy:", test_accuracy)
 
 # Plot Loss Curve
-
 plt.figure()
 plt.plot(train_loss_history)
 plt.title("Training Loss Curve")
@@ -157,7 +149,6 @@ plt.ylabel("Loss")
 plt.show()
 
 # Plot Accuracy Curve
-
 plt.figure()
 plt.plot(train_acc_history)
 plt.title("Training Accuracy Curve")
@@ -167,7 +158,6 @@ plt.show()
 
 
 # Confusion Matrix
-
 cm = confusion_matrix(all_labels, all_preds)
 
 plt.figure()
@@ -178,7 +168,6 @@ plt.ylabel("Actual")
 plt.show()
 
 # Sample Predictions
-
 plt.figure(figsize=(10,5))
 for i in range(10):
     plt.subplot(2,5,i+1)
