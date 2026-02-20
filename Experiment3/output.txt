@@ -1,22 +1,31 @@
-Epoch 1/20 | Loss: 1.1058 | Accuracy: 0.7254
-Epoch 2/20 | Loss: 0.4422 | Accuracy: 0.8827
-Epoch 3/20 | Loss: 0.3526 | Accuracy: 0.9019
-Epoch 4/20 | Loss: 0.3118 | Accuracy: 0.9122
-Epoch 5/20 | Loss: 0.2852 | Accuracy: 0.9187
-Epoch 6/20 | Loss: 0.2654 | Accuracy: 0.9247
-Epoch 7/20 | Loss: 0.2495 | Accuracy: 0.9292
-Epoch 8/20 | Loss: 0.2359 | Accuracy: 0.9327
-Epoch 9/20 | Loss: 0.2244 | Accuracy: 0.9361
-Epoch 10/20 | Loss: 0.2141 | Accuracy: 0.9390
-Epoch 11/20 | Loss: 0.2049 | Accuracy: 0.9413
-Epoch 12/20 | Loss: 0.1963 | Accuracy: 0.9438
-Epoch 13/20 | Loss: 0.1885 | Accuracy: 0.9462
-Epoch 14/20 | Loss: 0.1817 | Accuracy: 0.9484
-Epoch 15/20 | Loss: 0.1753 | Accuracy: 0.9499
-Epoch 16/20 | Loss: 0.1692 | Accuracy: 0.9520
-Epoch 17/20 | Loss: 0.1636 | Accuracy: 0.9535
-Epoch 18/20 | Loss: 0.1581 | Accuracy: 0.9547
-Epoch 19/20 | Loss: 0.1530 | Accuracy: 0.9564
-Epoch 20/20 | Loss: 0.1484 | Accuracy: 0.9580
+2026-02-20 14:13:20.638660: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-02-20 14:13:32.458139: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-02-20 14:13:46.647669: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-02-20 14:13:46.992800: I tensorflow/core/kernels/data/tf_record_dataset_op.cc:396] The default buffer size is 262144, which is overridden by the user specified `buffer_size` of 8388608
+Epoch 1/20 | Loss: 1.0895 | Training Accuracy: 0.7257
+Epoch 2/20 | Loss: 0.4395 | Training Accuracy: 0.8846
+Epoch 3/20 | Loss: 0.3502 | Training Accuracy: 0.9030
+Epoch 4/20 | Loss: 0.3099 | Training Accuracy: 0.9125
+Epoch 5/20 | Loss: 0.2841 | Training Accuracy: 0.9193
+Epoch 6/20 | Loss: 0.2643 | Training Accuracy: 0.9253
+Epoch 7/20 | Loss: 0.2483 | Training Accuracy: 0.9299
+Epoch 8/20 | Loss: 0.2348 | Training Accuracy: 0.9335
+Epoch 9/20 | Loss: 0.2229 | Training Accuracy: 0.9376
+Epoch 10/20 | Loss: 0.2121 | Training Accuracy: 0.9407
+Epoch 11/20 | Loss: 0.2026 | Training Accuracy: 0.9432
+Epoch 12/20 | Loss: 0.1942 | Training Accuracy: 0.9456
+Epoch 13/20 | Loss: 0.1862 | Training Accuracy: 0.9488
+Epoch 14/20 | Loss: 0.1792 | Training Accuracy: 0.9501
+Epoch 15/20 | Loss: 0.1726 | Training Accuracy: 0.9521
+Epoch 16/20 | Loss: 0.1667 | Training Accuracy: 0.9537
+Epoch 17/20 | Loss: 0.1609 | Training Accuracy: 0.9553
+Epoch 18/20 | Loss: 0.1556 | Training Accuracy: 0.9569
+Epoch 19/20 | Loss: 0.1506 | Training Accuracy: 0.9577
+Epoch 20/20 | Loss: 0.1462 | Training Accuracy: 0.9595
+2026-02-20 14:15:34.421947: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
 
-Final Test Accuracy: 0.9546
+Final Test Accuracy: 0.9573
+2026-02-20 14:16:33.901073: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-02-20 14:16:34.166871: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-02-20 14:16:34.694864: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
