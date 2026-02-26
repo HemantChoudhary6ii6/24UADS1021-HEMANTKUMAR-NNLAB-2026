@@ -1,0 +1,341 @@
+2026-02-26 14:36:17.457735: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+PS D:\Assignment\NNLAB> & "C:/Program Files/Python311/python.exe" d:/Assignment/NNLAB/Experiment4/Code.py
+2026-02-26 14:36:17.457735: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-02-26 14:36:17.457735: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-02-26 14:36:21.971825: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-02-26 14:36:25.555988: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+===== Varying Activation Function =====
+
+Activation: relu
+2026-02-26 14:36:25.900625: I tensorflow/core/kernels/data/tf_record_dataset_op.cc:396] The default buffer size is 262144, which is overridden by the user specified `buffer_size` of 8388608
+2026-02-26 14:36:34.251619: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+  Epoch 1/10 | Loss: 1.0012 | Acc: 0.7480
+2026-02-26 14:36:41.910231: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+  Epoch 2/10 | Loss: 0.4341 | Acc: 0.8812
+  Epoch 3/10 | Loss: 0.3517 | Acc: 0.9010
+2026-02-26 14:36:53.361908: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+  Epoch 4/10 | Loss: 0.3121 | Acc: 0.9115
+  Epoch 5/10 | Loss: 0.2861 | Acc: 0.9192
+  Epoch 6/10 | Loss: 0.2658 | Acc: 0.9247
+  Epoch 7/10 | Loss: 0.2492 | Acc: 0.9297
+2026-02-26 14:37:11.684472: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+  Epoch 8/10 | Loss: 0.2358 | Acc: 0.9336
+  Epoch 9/10 | Loss: 0.2235 | Acc: 0.9368
+  Epoch 10/10 | Loss: 0.2127 | Acc: 0.9400
+  --> Test Accuracy: 0.9387
+
+Activation: sigmoid
+  Epoch 1/10 | Loss: 2.2687 | Acc: 0.2337
+  Epoch 2/10 | Loss: 2.1651 | Acc: 0.4554
+  Epoch 3/10 | Loss: 2.0378 | Acc: 0.5729
+  Epoch 4/10 | Loss: 1.8609 | Acc: 0.6308
+2026-02-26 14:37:44.567373: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+  Epoch 5/10 | Loss: 1.6413 | Acc: 0.6798
+  Epoch 6/10 | Loss: 1.4152 | Acc: 0.7200
+  Epoch 7/10 | Loss: 1.2174 | Acc: 0.7554
+  Epoch 8/10 | Loss: 1.0603 | Acc: 0.7781
+  Epoch 9/10 | Loss: 0.9391 | Acc: 0.7964
+  Epoch 10/10 | Loss: 0.8454 | Acc: 0.8097
+  --> Test Accuracy: 0.8261
+
+Activation: tanh
+  Epoch 1/10 | Loss: 0.8396 | Acc: 0.7851
+  Epoch 2/10 | Loss: 0.4427 | Acc: 0.8832
+  Epoch 3/10 | Loss: 0.3731 | Acc: 0.8976
+  Epoch 4/10 | Loss: 0.3378 | Acc: 0.9055
+  Epoch 5/10 | Loss: 0.3150 | Acc: 0.9116
+  Epoch 6/10 | Loss: 0.2981 | Acc: 0.9156
+  Epoch 7/10 | Loss: 0.2847 | Acc: 0.9199
+  Epoch 8/10 | Loss: 0.2733 | Acc: 0.9228
+  Epoch 9/10 | Loss: 0.2634 | Acc: 0.9252
+2026-02-26 14:39:33.514013: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+  Epoch 10/10 | Loss: 0.2543 | Acc: 0.9281
+  --> Test Accuracy: 0.9285
+
+===== Varying Hidden Layer Size =====
+
+Hidden Size: 64
+  Epoch 1/10 | Loss: 1.3017 | Acc: 0.6249
+  Epoch 2/10 | Loss: 0.5107 | Acc: 0.8672
+  Epoch 3/10 | Loss: 0.3924 | Acc: 0.8913
+  Epoch 4/10 | Loss: 0.3444 | Acc: 0.9031
+  Epoch 5/10 | Loss: 0.3150 | Acc: 0.9112
+  Epoch 6/10 | Loss: 0.2937 | Acc: 0.9165
+  Epoch 7/10 | Loss: 0.2761 | Acc: 0.9211
+  Epoch 8/10 | Loss: 0.2618 | Acc: 0.9254
+  Epoch 9/10 | Loss: 0.2495 | Acc: 0.9289
+  Epoch 10/10 | Loss: 0.2385 | Acc: 0.9324
+  --> Test Accuracy: 0.9329
+
+Hidden Size: 256
+  Epoch 1/10 | Loss: 1.0799 | Acc: 0.7305
+  Epoch 2/10 | Loss: 0.4471 | Acc: 0.8821
+  Epoch 3/10 | Loss: 0.3586 | Acc: 0.9004
+  Epoch 4/10 | Loss: 0.3187 | Acc: 0.9102
+  Epoch 5/10 | Loss: 0.2926 | Acc: 0.9174
+  Epoch 6/10 | Loss: 0.2731 | Acc: 0.9226
+  Epoch 7/10 | Loss: 0.2570 | Acc: 0.9271
+  Epoch 8/10 | Loss: 0.2437 | Acc: 0.9310
+  Epoch 9/10 | Loss: 0.2318 | Acc: 0.9342
+  Epoch 10/10 | Loss: 0.2212 | Acc: 0.9375
+  --> Test Accuracy: 0.9389
+
+Hidden Size: 512
+  Epoch 1/10 | Loss: 0.9337 | Acc: 0.7764
+  Epoch 2/10 | Loss: 0.4091 | Acc: 0.8915
+  Epoch 3/10 | Loss: 0.3314 | Acc: 0.9080
+  Epoch 4/10 | Loss: 0.2938 | Acc: 0.9172
+  Epoch 5/10 | Loss: 0.2691 | Acc: 0.9243
+  Epoch 6/10 | Loss: 0.2503 | Acc: 0.9295
+  Epoch 7/10 | Loss: 0.2347 | Acc: 0.9336
+  Epoch 8/10 | Loss: 0.2214 | Acc: 0.9380
+2026-02-26 14:43:17.117411: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+  Epoch 9/10 | Loss: 0.2102 | Acc: 0.9404
+  Epoch 10/10 | Loss: 0.2000 | Acc: 0.9437
+  --> Test Accuracy: 0.9440
+
+===== Varying Learning Rate =====
+
+Learning Rate: 0.001
+  Epoch 1/10 | Loss: 2.1386 | Acc: 0.2662
+  Epoch 2/10 | Loss: 1.6971 | Acc: 0.6026
+  Epoch 3/10 | Loss: 1.3397 | Acc: 0.7317
+  Epoch 4/10 | Loss: 1.0668 | Acc: 0.7802
+  Epoch 5/10 | Loss: 0.8825 | Acc: 0.8091
+  Epoch 6/10 | Loss: 0.7607 | Acc: 0.8265
+  Epoch 7/10 | Loss: 0.6774 | Acc: 0.8399
+  Epoch 8/10 | Loss: 0.6174 | Acc: 0.8498
+  Epoch 9/10 | Loss: 0.5725 | Acc: 0.8571
+  Epoch 10/10 | Loss: 0.5374 | Acc: 0.8630
+  --> Test Accuracy: 0.8733
+
+Learning Rate: 0.01
+  Epoch 1/10 | Loss: 0.9863 | Acc: 0.7574
+  Epoch 2/10 | Loss: 0.4226 | Acc: 0.8869
+  Epoch 3/10 | Loss: 0.3439 | Acc: 0.9045
+  Epoch 4/10 | Loss: 0.3057 | Acc: 0.9133
+  Epoch 5/10 | Loss: 0.2805 | Acc: 0.9197
+  Epoch 6/10 | Loss: 0.2612 | Acc: 0.9249
+  Epoch 7/10 | Loss: 0.2452 | Acc: 0.9298
+  Epoch 8/10 | Loss: 0.2320 | Acc: 0.9342
+  Epoch 9/10 | Loss: 0.2204 | Acc: 0.9367
+  Epoch 10/10 | Loss: 0.2098 | Acc: 0.9401
+  --> Test Accuracy: 0.9411
+
+Learning Rate: 0.1
+  Epoch 1/10 | Loss: 0.3991 | Acc: 0.8879
+  Epoch 2/10 | Loss: 0.1911 | Acc: 0.9444
+  Epoch 3/10 | Loss: 0.1410 | Acc: 0.9591
+  Epoch 4/10 | Loss: 0.1113 | Acc: 0.9679
+  Epoch 5/10 | Loss: 0.0924 | Acc: 0.9732
+  Epoch 6/10 | Loss: 0.0786 | Acc: 0.9770
+  Epoch 7/10 | Loss: 0.0669 | Acc: 0.9806
+  Epoch 8/10 | Loss: 0.0582 | Acc: 0.9836
+  Epoch 9/10 | Loss: 0.0505 | Acc: 0.9855
+  Epoch 10/10 | Loss: 0.0444 | Acc: 0.9878
+  --> Test Accuracy: 0.9779
+
+===== Varying Batch Size =====
+
+Batch Size: 32
+  Epoch 1/10 | Loss: 0.5445 | Acc: 0.8549
+  Epoch 2/10 | Loss: 0.2712 | Acc: 0.9219
+  Epoch 3/10 | Loss: 0.2222 | Acc: 0.9369
+  Epoch 4/10 | Loss: 0.1901 | Acc: 0.9458
+  Epoch 5/10 | Loss: 0.1659 | Acc: 0.9525
+  Epoch 6/10 | Loss: 0.1468 | Acc: 0.9578
+  Epoch 7/10 | Loss: 0.1309 | Acc: 0.9625
+  Epoch 8/10 | Loss: 0.1184 | Acc: 0.9663
+  Epoch 9/10 | Loss: 0.1078 | Acc: 0.9692
+  Epoch 10/10 | Loss: 0.0987 | Acc: 0.9721
+  --> Test Accuracy: 0.9667
+
+Batch Size: 128
+  Epoch 1/10 | Loss: 1.0852 | Acc: 0.7237
+  Epoch 2/10 | Loss: 0.4452 | Acc: 0.8831
+  Epoch 3/10 | Loss: 0.3558 | Acc: 0.9027
+  Epoch 4/10 | Loss: 0.3159 | Acc: 0.9122
+  Epoch 5/10 | Loss: 0.2898 | Acc: 0.9193
+  Epoch 6/10 | Loss: 0.2707 | Acc: 0.9241
+  Epoch 7/10 | Loss: 0.2545 | Acc: 0.9281
+  Epoch 8/10 | Loss: 0.2408 | Acc: 0.9323
+  Epoch 9/10 | Loss: 0.2284 | Acc: 0.9356
+  Epoch 10/10 | Loss: 0.2182 | Acc: 0.9388
+  --> Test Accuracy: 0.9405
+  Epoch 1/10 | Loss: 1.0852 | Acc: 0.7237
+  Epoch 2/10 | Loss: 0.4452 | Acc: 0.8831
+  Epoch 3/10 | Loss: 0.3558 | Acc: 0.9027
+  Epoch 4/10 | Loss: 0.3159 | Acc: 0.9122
+  Epoch 5/10 | Loss: 0.2898 | Acc: 0.9193
+  Epoch 6/10 | Loss: 0.2707 | Acc: 0.9241
+  Epoch 7/10 | Loss: 0.2545 | Acc: 0.9281
+  Epoch 8/10 | Loss: 0.2408 | Acc: 0.9323
+  Epoch 9/10 | Loss: 0.2284 | Acc: 0.9356
+  Epoch 10/10 | Loss: 0.2182 | Acc: 0.9388
+  --> Test Accuracy: 0.9405
+  Epoch 3/10 | Loss: 0.3558 | Acc: 0.9027
+  Epoch 4/10 | Loss: 0.3159 | Acc: 0.9122
+  Epoch 5/10 | Loss: 0.2898 | Acc: 0.9193
+  Epoch 6/10 | Loss: 0.2707 | Acc: 0.9241
+  Epoch 7/10 | Loss: 0.2545 | Acc: 0.9281
+  Epoch 8/10 | Loss: 0.2408 | Acc: 0.9323
+  Epoch 9/10 | Loss: 0.2284 | Acc: 0.9356
+  Epoch 10/10 | Loss: 0.2182 | Acc: 0.9388
+  --> Test Accuracy: 0.9405
+  Epoch 5/10 | Loss: 0.2898 | Acc: 0.9193
+  Epoch 6/10 | Loss: 0.2707 | Acc: 0.9241
+  Epoch 7/10 | Loss: 0.2545 | Acc: 0.9281
+  Epoch 8/10 | Loss: 0.2408 | Acc: 0.9323
+  Epoch 9/10 | Loss: 0.2284 | Acc: 0.9356
+  Epoch 10/10 | Loss: 0.2182 | Acc: 0.9388
+  --> Test Accuracy: 0.9405
+  Epoch 7/10 | Loss: 0.2545 | Acc: 0.9281
+  Epoch 8/10 | Loss: 0.2408 | Acc: 0.9323
+  Epoch 9/10 | Loss: 0.2284 | Acc: 0.9356
+  Epoch 10/10 | Loss: 0.2182 | Acc: 0.9388
+  --> Test Accuracy: 0.9405
+
+Batch Size: 256
+  Epoch 1/10 | Loss: 1.4350 | Acc: 0.6336
+  Epoch 2/10 | Loss: 0.6382 | Acc: 0.8517
+  Epoch 3/10 | Loss: 0.4697 | Acc: 0.8789
+  Epoch 9/10 | Loss: 0.2284 | Acc: 0.9356
+  Epoch 10/10 | Loss: 0.2182 | Acc: 0.9388
+  --> Test Accuracy: 0.9405
+
+Batch Size: 256
+  Epoch 1/10 | Loss: 1.4350 | Acc: 0.6336
+  Epoch 2/10 | Loss: 0.6382 | Acc: 0.8517
+  Epoch 3/10 | Loss: 0.4697 | Acc: 0.8789
+
+Batch Size: 256
+  Epoch 1/10 | Loss: 1.4350 | Acc: 0.6336
+  Epoch 2/10 | Loss: 0.6382 | Acc: 0.8517
+  Epoch 3/10 | Loss: 0.4697 | Acc: 0.8789
+  Epoch 4/10 | Loss: 0.4024 | Acc: 0.8916
+  Epoch 4/10 | Loss: 0.4024 | Acc: 0.8916
+  Epoch 5/10 | Loss: 0.3648 | Acc: 0.8986
+  Epoch 6/10 | Loss: 0.3391 | Acc: 0.9051
+  Epoch 5/10 | Loss: 0.3648 | Acc: 0.8986
+  Epoch 6/10 | Loss: 0.3391 | Acc: 0.9051
+2026-02-26 14:51:03.771482: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-02-26 14:51:03.771482: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+  Epoch 7/10 | Loss: 0.3201 | Acc: 0.9097
+  Epoch 8/10 | Loss: 0.3048 | Acc: 0.9139
+  Epoch 9/10 | Loss: 0.2918 | Acc: 0.9174
+  Epoch 10/10 | Loss: 0.2806 | Acc: 0.9210
+  --> Test Accuracy: 0.9245
+
+===== Varying Number of Epochs =====
+
+Epochs: 5
+  Epoch 1/5 | Loss: 1.0640 | Acc: 0.7324
+  Epoch 2/5 | Loss: 0.4387 | Acc: 0.8828
+  Epoch 3/5 | Loss: 0.3521 | Acc: 0.9020
+  Epoch 4/5 | Loss: 0.3119 | Acc: 0.9119
+  Epoch 5/5 | Loss: 0.2856 | Acc: 0.9194
+  --> Test Accuracy: 0.9262
+
+Epochs: 10
+  Epoch 1/10 | Loss: 1.0737 | Acc: 0.7270
+  Epoch 2/10 | Loss: 0.4364 | Acc: 0.8839
+  Epoch 3/10 | Loss: 0.3500 | Acc: 0.9024
+  Epoch 4/10 | Loss: 0.3105 | Acc: 0.9126
+  Epoch 5/10 | Loss: 0.2846 | Acc: 0.9199
+  Epoch 6/10 | Loss: 0.2654 | Acc: 0.9257
+  Epoch 7/10 | Loss: 0.2498 | Acc: 0.9295
+  Epoch 8/10 | Loss: 0.2361 | Acc: 0.9341
+  Epoch 9/10 | Loss: 0.2242 | Acc: 0.9366
+  Epoch 10/10 | Loss: 0.2137 | Acc: 0.9396
+  --> Test Accuracy: 0.9396
+
+Epochs: 20
+  Epoch 1/20 | Loss: 1.0404 | Acc: 0.7419
+  Epoch 2/20 | Loss: 0.4404 | Acc: 0.8812
+  Epoch 3/20 | Loss: 0.3527 | Acc: 0.9017
+  Epoch 4/20 | Loss: 0.3119 | Acc: 0.9123
+  Epoch 5/20 | Loss: 0.2861 | Acc: 0.9187
+  Epoch 6/20 | Loss: 0.2662 | Acc: 0.9250
+  Epoch 7/20 | Loss: 0.2501 | Acc: 0.9300
+  Epoch 8/20 | Loss: 0.2366 | Acc: 0.9334
+  Epoch 9/20 | Loss: 0.2250 | Acc: 0.9363
+  Epoch 10/20 | Loss: 0.2142 | Acc: 0.9393
+  Epoch 11/20 | Loss: 0.2051 | Acc: 0.9419
+  Epoch 12/20 | Loss: 0.1965 | Acc: 0.9445
+  Epoch 13/20 | Loss: 0.1889 | Acc: 0.9464
+  Epoch 14/20 | Loss: 0.1820 | Acc: 0.9484
+  Epoch 15/20 | Loss: 0.1752 | Acc: 0.9505
+  Epoch 16/20 | Loss: 0.1690 | Acc: 0.9525
+  Epoch 17/20 | Loss: 0.1632 | Acc: 0.9539
+  Epoch 18/20 | Loss: 0.1580 | Acc: 0.9553
+  Epoch 19/20 | Loss: 0.1529 | Acc: 0.9566
+  Epoch 20/20 | Loss: 0.1484 | Acc: 0.9581
+  --> Test Accuracy: 0.9560
+
+===== Finding Best Configuration =====
+  Best Activation  : relu → 0.9387
+  Best Hidden Size : 512  → 0.9440
+  Best LR          : 0.1   → 0.9779
+  Best Batch Size  : 32   → 0.9667
+  Best Epochs      : 20    → 0.9560
+
+===== Training Best Model =====
+Config: activation=relu | hidden=512 | lr=0.1 | batch=32 | epochs=20
+  Epoch 1/20 | Loss: 0.2372 | Acc: 0.9288
+  Epoch 2/20 | Loss: 0.0960 | Acc: 0.9712
+  Epoch 3/20 | Loss: 0.0630 | Acc: 0.9808
+  Epoch 4/20 | Loss: 0.0431 | Acc: 0.9866
+  Epoch 5/20 | Loss: 0.0311 | Acc: 0.9906
+  Epoch 6/20 | Loss: 0.0221 | Acc: 0.9937
+  Epoch 7/20 | Loss: 0.0149 | Acc: 0.9961
+  Epoch 8/20 | Loss: 0.0106 | Acc: 0.9974
+  Epoch 9/20 | Loss: 0.0066 | Acc: 0.9988
+  Epoch 10/20 | Loss: 0.0045 | Acc: 0.9993
+  Epoch 11/20 | Loss: 0.0029 | Acc: 0.9997
+  Epoch 12/20 | Loss: 0.0019 | Acc: 0.9999
+  Epoch 13/20 | Loss: 0.0013 | Acc: 0.9999
+  Epoch 14/20 | Loss: 0.0010 | Acc: 1.0000
+  Epoch 15/20 | Loss: 0.0009 | Acc: 1.0000
+  Epoch 16/20 | Loss: 0.0007 | Acc: 1.0000
+  Epoch 17/20 | Loss: 0.0007 | Acc: 1.0000
+  Epoch 18/20 | Loss: 0.0006 | Acc: 1.0000
+  Epoch 19/20 | Loss: 0.0005 | Acc: 1.0000
+  Epoch 20/20 | Loss: 0.0005 | Acc: 1.0000
+
+Best Model Test Accuracy: 0.9820
+
+=============================================
+           SUMMARY OF RESULTS
+=============================================
+
+[A] Activation Functions:
+    relu     : 0.9387 ◄ best
+    sigmoid  : 0.8261
+    tanh     : 0.9285
+
+[B] Hidden Layer Sizes:
+       64    : 0.9329
+      256    : 0.9389
+      512    : 0.9440 ◄ best
+
+[C] Learning Rates:
+    0.0010   : 0.8733
+    0.0100   : 0.9411
+    0.1000   : 0.9779 ◄ best
+    * LR=0.1 may show unstable training due to large gradient updates
+
+[D] Batch Sizes:
+       32    : 0.9667 ◄ best
+      128    : 0.9405
+      256    : 0.9245
+
+[E] Epoch Counts:
+       5     : 0.9262
+      10     : 0.9396
+      20     : 0.9560 ◄ best
+
+[Best Model] activation=relu | hidden=512 | lr=0.1 | batch=32 | epochs=20
+             Test Accuracy: 0.9820
+=============================================

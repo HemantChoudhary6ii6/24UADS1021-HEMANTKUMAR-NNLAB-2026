@@ -1,0 +1,1 @@
+I am giving you the already implemented exp3 code and take that as reference and here is next exp4->WAP to evaluate the performance of implemented three-layer neural network with variations in activation functions, size of hidden layer, learning rate, batch size and number of epochs. 
