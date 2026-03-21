@@ -1,5 +1,5 @@
 # Driving Risk Score System
-### Mini Project 2 — Motion Sensor Based Driving Behaviour Analysis
+### Mini Project  — Motion Sensor Based Driving Behaviour Analysis
 
 A deep learning pipeline that analyses accelerometer and gyroscope readings from an Android phone to generate a **0–100 Driving Score** indicating how safely an individual drives a two-wheeler.
 
