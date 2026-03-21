@@ -96,7 +96,7 @@ app.py              → Streamlit dashboard
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/HemantChoudhary6ii6/24UADS1021-HEMANTKUMAR-NNLAB-2026.git
-cd lab-work/DrivingScore
+cd DrivingScoreProject/
 ```
 
 ### 2. Create virtual environment
