@@ -8,7 +8,6 @@ Dataset collected manually using an Android sensor application built by seniors 
 ## Data Collection App
 
 > **App:** [Two-Wheeler Road Surface Classifier](https://github.com/Harshit-Soni78/Two-Wheeler-Road-Surface-Classifier)
-> Built by Harshit Soni — captures accelerometer and gyroscope data from an Android phone mounted on a two-wheeler.
 
 The app records 6 sensor channels at ~10ms intervals and saves each session as a CSV file that can be exported to a computer.
 
@@ -108,34 +107,18 @@ data/raw_real/
 │   ├── Ayan_smooth_1(1).csv
 │   ├── sonu_dangerous01.csv
 │   ├── vikram_1.csv
-│   └── ... (31 files)
+│   └── ... 
 ├── 2 star/
-│   └── ... (36 files)
+│   └── ... 
 ├── 3 star/
-│   └── ... (50 files)
+│   └── ... 
 ├── 4 star/
-│   └── ... (48 files)
+│   └── ... 
 └── 5 star/
-    └── ... (28 files)
+    └── ... 
 ```
 
 ---
-
-## How to Use This Dataset
-
-### With the Driving Risk Score pipeline
-
-```bash
-# Clone the project
-git clone https://github.com/YourUsername/NNLAB.git
-cd NNLAB/DrivingScoreProject
-
-# Place this dataset folder at:
-# DrivingScoreProject/data/raw_real/
-
-# Run the full pipeline
-python run_pipeline.py
-```
 
 The pipeline will automatically:
 1. Read all CSVs from star folders and assign ratings
@@ -175,18 +158,8 @@ print(f"Shape: {df.shape}")
 
 ---
 
-## Notes
-
-- Some session files have very few rows (under 200) — these are valid but produce fewer windows
-- File naming is inconsistent across riders — the pipeline handles this automatically
-- One file (`Lokesh_safe1.csv`) was skipped during processing due to missing sensor columns
-- `Z_Acc` should never be zero on a real device (gravity = 9.8 m/s²) — rows with `Z_Acc = 0` are cleaned automatically
-
----
-
 ## Related Links
 
 | Resource | Link |
 |---|---|
 | Data collection app | [Two-Wheeler Road Surface Classifier](https://github.com/Harshit-Soni78/Two-Wheeler-Road-Surface-Classifier) |
-| Driving Risk Score project | [DrivingScoreProject](../DrivingScoreProject/README.md) |
