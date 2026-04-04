@@ -1,0 +1,1 @@
+WAP to retrain a pretrained imagenet model to classify a medical image dataset,also visualize relationship with important parameters.

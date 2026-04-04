@@ -1,0 +1,43 @@
+[DATA] Using cached dataset : /content/data/pneumoniamnist.npz
+
+[DATA] Classes : ['Normal', 'Pneumonia']
+       train  : 4,708 images
+       val    : 524 images
+       test   : 624 images
+
+[DEVICE] cuda  (Tesla T4)
+[DEVICE] batch_size auto-scaled to 64 for GPU
+
+[MODEL] Loading pretrained resnet50 ...
+       Trainable : 24,033,090 / 24,033,090 params
+[AMP]   Mixed precision (FP16) enabled
+
+──────────────────────────────────────────────────────────────────────
+/tmp/ipykernel_8632/1881318139.py:189: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler  = torch.cuda.amp.GradScaler(enabled=use_amp)
+/tmp/ipykernel_8632/1881318139.py:213: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=use_amp):
+Epoch [  1/10]  Train loss=0.4082  acc=0.8027  |  Val   loss=0.3233  acc=0.8760  lr=9.76e-05  (28.3s)
+Epoch [  2/10]  Train loss=0.3299  acc=0.8566  |  Val   loss=0.4224  acc=0.8378  lr=9.05e-05  (23.8s)
+Epoch [  3/10]  Train loss=0.3154  acc=0.8653  |  Val   loss=0.3090  acc=0.8683  lr=7.96e-05  (23.2s)
+Epoch [  4/10]  Train loss=0.2992  acc=0.8738  |  Val   loss=0.3779  acc=0.8359  lr=6.58e-05  (23.7s)
+Epoch [  5/10]  Train loss=0.2902  acc=0.8783  |  Val   loss=0.3389  acc=0.8645  lr=5.05e-05  (24.4s)
+Epoch [  6/10]  Train loss=0.2814  acc=0.8806  |  Val   loss=0.3294  acc=0.8588  lr=3.52e-05  (23.3s)
+Epoch [  7/10]  Train loss=0.2653  acc=0.8908  |  Val   loss=0.3481  acc=0.8340  lr=2.14e-05  (24.9s)
+Epoch [  8/10]  Train loss=0.2577  acc=0.8959  |  Val   loss=0.3556  acc=0.8473  lr=1.05e-05  (29.3s)
+Epoch [  9/10]  Train loss=0.2405  acc=0.9034  |  Val   loss=0.3574  acc=0.8397  lr=3.42e-06  (25.0s)
+Epoch [ 10/10]  Train loss=0.2373  acc=0.9006  |  Val   loss=0.3761  acc=0.8340  lr=1.00e-06  (23.8s)
+
+[DONE] Best val accuracy : 0.8760
+
+[EVAL]  Running inference on test set ...
+
+[EVALUATION] Classification Report:
+              precision    recall  f1-score   support
+
+      Normal       0.82      0.55      0.65       234
+   Pneumonia       0.77      0.93      0.84       390
+
+    accuracy                           0.78       624
+   macro avg       0.79      0.74      0.75       624
+weighted avg       0.79      0.78      0.77       624
